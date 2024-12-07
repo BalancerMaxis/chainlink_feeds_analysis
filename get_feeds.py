@@ -33,7 +33,8 @@ def main():
             print(chain)
             for rate_provider_address, info in registry[chain].items():
                 ## Handle Chainlink  tagged rate providers
-                if 'chainlink' in info['warnings'] or 'legacy' in info['warnings']:
+                #if 'chainlink' in info['warnings'] or 'legacy' in info['warnings']:
+                if True:
                     rate_provider_address = Web3.to_checksum_address(rate_provider_address)
                     print(f"{rate_provider_address}({info['warnings']})")
                     w3 = w3_by_chain[chain]
