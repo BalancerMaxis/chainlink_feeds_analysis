@@ -51,10 +51,10 @@ def main():
                         # Feed without a description???
                         print(f"Warning: Feed {chain}:{pricefeed_address} from rate provider {rate_provider_address} has no description function")
                         continue
+                    warnings = info['warnings']
+                    feed_description = feed_description + f"({warnings})" if len(warnings) > 0 else feed_description
                     print(f'{chain},{rate_provider_address},{pricefeed_address},{feed_description}')
-                    f.write(f'{chain},{rate_provider_address},{pricefeed_address},{feed_description}+{'(legacy)' if 'legacy' in info['warnings'] else ''}\n')
-        f.close()
-
+                    f.write(f'{chain},{rate_provider_address},{pricefeed_address},{feed_description}\n')
     # run main when called
 if __name__ == '__main__':
     main()
